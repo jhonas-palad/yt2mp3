@@ -1,0 +1,109 @@
+#search_container{
+    display: block;
+    color: #fdfdfd;
+    padding:3rem 1rem;
+    text-align: center;
+}
+
+#search_container p{
+    font-size: 0.8rem;
+}
+
+#search_form{
+    position: relative;
+    padding:1rem;
+    min-width: 440px;
+    --shadow: 1px -1px 19px 3px rgba(153, 62, 62, 0.59);
+}
+
+.search-input, #search-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  gap: 1.5rem;
+}
+
+span[err-msg]{
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+    color: #fff;
+    padding:1rem;
+    width: 100%;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    border: 1px solid var(--orange-tint-1);
+}
+
+
+#search_form input[type="text"] {
+    padding:1rem;
+    margin-bottom: 1rem;
+    border: 0.9px solid rgba(204, 204, 204, 0.933);
+    border-radius: 8px;
+    box-shadow: var(--shadow)
+
+}
+
+#search_form input[type="text"]:focus{
+    outline: 1px solid rgb(164, 164, 164);
+}
+
+#search-results:has(div){
+  display: flex;
+  justify-content: initial;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: #ffffffcc;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.400);
+  border-radius: 10px;
+  margin: 1rem;
+  color: var(--font-color-2);
+}
+
+.yt-details{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.yt-details .yt-body{
+  display: inline-grid;
+  gap: 12px;
+  text-align: initial;
+  align-self: initial;
+  flex: 1;
+}
+
+
+.wave{
+    height: inherit;
+    width: 100%;
+    background-image: url(../img/wave.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+#id_search_btn {
+  background-color: var(--orange);
+  /* box-shadow: rgba(182, 182, 182, 0.02) 0 1px 3px 0; */
+  
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}
+
+#id_search_btn:hover,
+#id_search_btn:focus {
+  background-color: var(--orange-tint-1);
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px; */
+  box-shadow: var(--shadow);
+}
+
+#id_search_btn:active {
+  background-color: #ffffff80;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}

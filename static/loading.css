@@ -1,0 +1,74 @@
+.loader-spin{
+    width: 48px;
+    height: 48px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position:relative;
+    animation: rotation 1s linear infinite;
+}
+
+.loader-spin:after,
+.loader-spin:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #eeee;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.loader-spin:before{
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-jump-split{
+    width: 82px;
+    height: 18px;
+    position: relative;
+
+}
+.loader-jump-split::before,
+.loader-jump-split::after {
+    content: '';
+    position:absolute;
+    left: 50%;
+    top:0;
+    background: var(--orange);
+    height:16px;
+    width:16px;
+    border-radius: 50%;
+    transform: translate(-50%, 0%);
+    animation: jump 0.5s ease-in infinite alternate;
+}
+
+.loader-jump-split::after{
+    background: #0000;
+    color: #fff;
+    top: 100%;
+    box-shadow: 32px -20px , -32px -20px;
+    animation: split 0.5s ease-out infinite alternate;
+}
+
+@keyframes split {
+    0% { box-shadow: 8px -20px, -8px -20px}
+    100% { box-shadow: 32px -20px , -32px -20px}
+}
+@keyframes jump {
+    0% { transform: translate(-50% , -150%)}
+    100% { transform: translate(-50% , 10%)}
+}

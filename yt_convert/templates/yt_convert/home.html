@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} My amazing title {% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'yt_convert/css/home.css' %}">
+    <script src="{% static 'yt_convert/js/fetch_yt.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <div class="wave">
+        <div id="search_container" class="container">
+            <h1 class="margin-btm-1 margin-top-3">YouTube to MP3 Converter</h1>
+            <p class="margin-btm-1">Convert and download YouTube videos in MP3 format for free</p>
+            <form id="search_form" class="margin-btm-1" method="POST">
+                <div class="search-input w-100">
+                    {{yt_url_form.yt_url}}
+                    <span err-msg>Invalid youtube url</span>
+                    <button id="id_search_btn" class="btn" type="button">Convert</button>
+                    <span id="search_loader" style="position: absolute; bottom: 5%;" class="loader-jump-split hidden"></span>
+                </div>
+            </form>
+            <div id="search-results">
+                <div>
+                    <img style="border-radius: 10px;" src="https://i.ytimg.com/vi/I319scazZZM/sddefault.jpg" alt="" height="200px" width="200px">
+                </div>
+                <div style="text-align: initial;height: 100%;max-width: 50%;align-self: flex-start;display: flex;flex: 1;flex-direction: column;justify-content: space-between;">
+                    <div style="display: flex; flex-direction: column; margin-bottom:auto;">
+                        <strong>Last Chance(Alt Version)</strong>
+                        <span>5:51</span>
+                    </div>
+                    <button class="btn">
+                        Download
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('search_form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+        })
+    </script>
+{% endblock %}

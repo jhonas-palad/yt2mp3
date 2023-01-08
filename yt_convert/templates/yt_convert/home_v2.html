@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} My amazing title {% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'yt_convert/css/home.css' %}">
+    <!-- <script src="{% static 'yt_convert/js/fetch_yt.js' %}" defer></script> -->
+{% endblock %}
+
+{% block content %}
+    <div class="wave">
+        <div id="search_container" class="container">
+            <h1 class="margin-btm-1 margin-top-3">YouTube to MP3 Converter</h1>
+            <p class="margin-btm-1">Convert and download YouTube videos in MP3 format for free</p>
+            <form id="search_form" class="margin-btm-1" method="POST">
+                <div id="search-input" class="search-input w-100 margin-btm-1">
+                    {{yt_url_form.yt_url}}
+                </div> 
+                <div id="search-button">
+                    <!-- React component -->
+                </div>
+            </form>
+            <div id="search-results"></div>
+
+        </div>
+    </div>
+    <!-- Load React. -->
+    {% if debug_mode  %}
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    {% else %}
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    {% endif %}
+
+    <!-- Load React component -->
+    <script src="{% static 'yt_convert/js/src/utils/react_utils.js' %}"></script>
+    <script src="{% static 'yt_convert/js/src/utils/ytinfo_utils.js' %}"></script>
+    <script type="text/babel" src="{% static 'yt_convert/js/src/components/SearchResult.js' %}"></script>
+    <script type="text/babel" src="{% static 'yt_convert/js/src/components/Main.js' %}"></script>
+
+{% endblock %}
