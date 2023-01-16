@@ -3,6 +3,7 @@
 ## Description
 - A Django application that converts Youtube videos to mp3 format.
 - Downloads the highest possible bitrate.
+- With a touch of React components.
 
 ## Screenshots
 
@@ -13,6 +14,6 @@
 ## TODO
 
 - Add celery task worker
-- Babel installation
+- Add JSX preprocessor to the Project
 - Postgres SQL integration
 - Deployment
