@@ -7,8 +7,7 @@ class TimeStampedModel(models.Model):
 
     class Meta:
         abstract = True
-
-
+        
 class MP3Audio(TimeStampedModel):
     youtube_id = models.CharField(primary_key=True, max_length=100)
     url = models.URLField(max_length=255)
