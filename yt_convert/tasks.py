@@ -12,6 +12,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.core.files.base import File
 from .models import MP3Audio
+from celery import shared_task
 
 def fetch_yt_info(url: str) -> Dict[str, Any]:
     result : Dict = {}
@@ -47,6 +48,7 @@ def download_audio(audio: Stream) -> File:
 
     return File(buffer, name = uniq_filename)
 
+@shared_task()
 def extract_audio(url: str) -> Dict[str, Any]:
     yt_info : Dict[str, Any]
 
@@ -89,3 +91,9 @@ def extract_audio(url: str) -> Dict[str, Any]:
     
     return yt_info
 
+def handle_on_success(retval, task_id, *args, **kwargs):
+    print(retval)
+    print(task_id)
+    print(args)
+    print(kwargs)
+extract_audio.on_success = handle_on_success

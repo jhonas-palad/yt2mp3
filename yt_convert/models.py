@@ -1,5 +1,4 @@
 from django.db import models
-from typing import Dict
 
 class TimeStampedModel(models.Model):
     date_create = models.DateTimeField(auto_now_add=True)

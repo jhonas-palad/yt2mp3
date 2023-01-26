@@ -36,12 +36,13 @@ class ConvertView(View):
         bound_form = YTUrlForm(post_data)
         if bound_form.is_valid():
             url: str = bound_form.cleaned_data['yt_url']
-            res: Dict = tasks.extract_audio(url)
-            if 'err_msg' in res:
-                data['err_msg'] = res['err_msg']
+            res: Dict = tasks.extract_audio.delay(url)
+            extracted_audio_info = res.get()
+            if 'err_msg' in extracted_audio_info:
+                data['err_msg'] = extracted_audio_info['err_msg']
                 status_code = 400
             else:
-                data.update(res)
+                data.update(extracted_audio_info)
         else:
             data['err_msg'] = 'Invalid YouTube URL'
             status_code = 400
