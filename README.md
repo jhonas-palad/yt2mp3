@@ -10,10 +10,3 @@
 <img src="./static/md_assets/sc1.png" alt="drawing" style="width:750px;"/>
 <img src="./static/md_assets/sc2.png" alt="drawing" style="width:750px;"/>
 
-
-## TODO
-
-- Add celery task worker
-- Add JSX preprocessor to the Project
-- Postgres SQL integration
-- Deployment
